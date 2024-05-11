@@ -10,6 +10,7 @@ import socket
 import struct
 import subprocess
 
+# og mac: Current MAC address: 54:e1:ad:7b:8b:1d
 
 
 def change_mac(interface, new_mac):
@@ -51,23 +52,23 @@ def custom_mac():
 def menu(interface):
   current_mac = my_mac(interface)
   while True:
-    print(f'Current MAC address: {current_mac}\n')
+    print(f"Current MAC address: {current_mac}\n")
     choice = input('1) Generate a random MAC address: \n2) Enter the MAC address you wish to clone: \n')
 
     if choice == '1':
       new_mac = rand_mac()
-      print('New MAC address: {new_mac}')
+      print(f"New MAC address: {new_mac}")
       if change_mac(interface, new_mac):
-        print('MAC address successfully changed to : {new_mac}.')
+        print(f"MAC address successfully changed to : {new_mac}.")
       else:
         print('Failed to change MAC address.')
 
     elif choice == '2':
-      print('Current MAC address: {new_mac}\n')
+      print(f"Current MAC address: {current_mac}\n")
       new_mac = custom_mac()
-      print('New MAC address: {new_mac}')
+      print(f"New MAC address: {new_mac}")
       if change_mac(interface, new_mac):
-        print('MAC address successfully changed to : {new_mac}.')
+        print(f"MAC address successfully changed to : {new_mac}.")
       else:
         print('Failed to change MAC address.')
 
