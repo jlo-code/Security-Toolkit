@@ -10,8 +10,6 @@ import socket
 import struct
 import subprocess
 
-# og mac: Current MAC address: 54:e1:ad:7b:8b:1d
-
 
 def change_mac(interface, new_mac):
   try:
